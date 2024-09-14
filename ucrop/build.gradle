@@ -1,5 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'org.jetbrains.kotlin.android'
+apply from: '../mavenpush.gradle'
 
 android {
     namespace 'com.yalantis.ucrop'
