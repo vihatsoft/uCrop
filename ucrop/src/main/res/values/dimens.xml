@@ -26,4 +26,6 @@
     <dimen name="ucrop_default_crop_rect_min_size">100dp</dimen>
     <dimen name="ucrop_default_crop_rect_corner_touch_area_line_length">10dp</dimen>
 
+    <!--Control Layout-->
+    <dimen name="ucrop_control_min_width">72dp</dimen>
 </resources>

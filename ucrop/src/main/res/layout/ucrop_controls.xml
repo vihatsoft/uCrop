@@ -32,6 +32,21 @@
             android:id="@+id/layout_scale_wheel"
             layout="@layout/ucrop_layout_scale_wheel" />
 
+        <include
+            android:id="@+id/layout_brightness_bar"
+            layout="@layout/ucrop_layout_brightness_wheel" />
+
+        <include
+            android:id="@+id/layout_contrast_bar"
+            layout="@layout/ucrop_layout_contrast_wheel" />
+
+        <include
+            android:id="@+id/layout_saturation_bar"
+            layout="@layout/ucrop_layout_saturation_wheel" />
+
+        <include
+            android:id="@+id/layout_sharpness_bar"
+            layout="@layout/ucrop_layout_sharpness_wheel" />
     </FrameLayout>
 
     <ImageView
@@ -41,15 +56,14 @@
         android:layout_alignBottom="@+id/wrapper_controls"
         android:src="@drawable/ucrop_shadow_upside" />
 
-    <LinearLayout
+    <com.yalantis.ucrop.view.ControlLayout
         android:id="@+id/wrapper_states"
         android:layout_width="match_parent"
         android:layout_height="@dimen/ucrop_height_wrapper_states"
         android:layout_below="@+id/controls_shadow"
         android:background="@color/ucrop_color_widget_background"
-        android:baselineAligned="false"
-        android:gravity="center"
-        android:orientation="horizontal">
+        android:scrollbarThumbHorizontal="@drawable/ucrop_scrollbar_thumb_horizontal"
+        android:scrollbars="horizontal">
 
         <LinearLayout
             android:id="@+id/state_aspect_ratio"
@@ -66,7 +80,6 @@
                 android:id="@+id/text_view_crop"
                 style="@style/ucrop_TextViewWidget"
                 android:text="@string/ucrop_crop" />
-
         </LinearLayout>
 
         <LinearLayout
@@ -82,7 +95,6 @@
                 android:id="@+id/text_view_rotate"
                 style="@style/ucrop_TextViewWidget"
                 android:text="@string/ucrop_rotate" />
-
         </LinearLayout>
 
         <LinearLayout
@@ -98,7 +110,66 @@
                 android:id="@+id/text_view_scale"
                 style="@style/ucrop_TextViewWidget"
                 android:text="@string/ucrop_scale" />
-
         </LinearLayout>
-    </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/state_brightness"
+            style="@style/ucrop_WrapperIconState">
+
+            <ImageView
+                android:id="@+id/image_view_state_brightness"
+                style="@style/ucrop_ImageViewWidgetIcon"
+                app:srcCompat="@drawable/ucrop_brightness" />
+
+            <TextView
+                android:id="@+id/text_view_brightness"
+                style="@style/ucrop_TextViewWidget"
+                android:text="@string/ucrop_brightness" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/state_contrast"
+            style="@style/ucrop_WrapperIconState">
+
+            <ImageView
+                android:id="@+id/image_view_state_contrast"
+                style="@style/ucrop_ImageViewWidgetIcon"
+                app:srcCompat="@drawable/ucrop_contrast" />
+
+            <TextView
+                android:id="@+id/text_view_contrast"
+                style="@style/ucrop_TextViewWidget"
+                android:text="@string/ucrop_contrast" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/state_saturation"
+            style="@style/ucrop_WrapperIconState">
+
+            <ImageView
+                android:id="@+id/image_view_state_saturation"
+                style="@style/ucrop_ImageViewWidgetIcon"
+                app:srcCompat="@drawable/ucrop_saturation" />
+
+            <TextView
+                android:id="@+id/text_view_saturation"
+                style="@style/ucrop_TextViewWidget"
+                android:text="@string/ucrop_saturation" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/state_sharpness"
+            style="@style/ucrop_WrapperIconState">
+
+            <ImageView
+                android:id="@+id/image_view_state_sharpness"
+                style="@style/ucrop_ImageViewWidgetIcon"
+                app:srcCompat="@drawable/ucrop_sharpness" />
+
+            <TextView
+                android:id="@+id/text_view_sharpness"
+                style="@style/ucrop_TextViewWidget"
+                android:text="@string/ucrop_sharpness" />
+        </LinearLayout>
+    </com.yalantis.ucrop.view.ControlLayout>
 </RelativeLayout>
