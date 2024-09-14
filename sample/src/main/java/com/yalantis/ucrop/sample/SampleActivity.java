@@ -25,10 +25,12 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
 import com.yalantis.ucrop.UCrop;
 import com.yalantis.ucrop.UCropActivity;
 import com.yalantis.ucrop.UCropFragment;
 import com.yalantis.ucrop.UCropFragmentCallback;
+
 
 import java.io.File;
 import java.util.Locale;
@@ -86,6 +88,7 @@ public class SampleActivity extends BaseActivity implements UCropFragmentCallbac
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK) {
             if (requestCode == requestMode) {
                 final Uri selectedUri = data.getData();
@@ -222,7 +225,7 @@ public class SampleActivity extends BaseActivity implements UCropFragmentCallbac
     private void startCrop(@NonNull Uri uri) {
         String destinationFileName = SAMPLE_CROPPED_IMAGE_NAME;
         switch (mRadioGroupCompressionSettings.getCheckedRadioButtonId()) {
-            case R.id.radio_png:
+            case  R.id.radio_png:
                 destinationFileName += ".png";
                 break;
             case R.id.radio_jpeg:

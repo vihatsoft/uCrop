@@ -1,16 +1,15 @@
 apply plugin: 'com.android.library'
-apply from: '../mavenpush.gradle'
 
 android {
-    compileSdk 33
+    namespace 'com.yalantis.ucrop'
+    compileSdk 34
     defaultConfig {
-        minSdkVersion 14
+        minSdkVersion 29
         targetSdkVersion 33
-        versionCode 27
-        versionName "2.2.9-native"
 
         vectorDrawables.useSupportLibrary = true
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -21,14 +20,14 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-    lintOptions {
-        abortOnError false
-    }
 
     resourcePrefix 'ucrop_'
 
     sourceSets.main {
         jni.srcDirs = []
+    }
+    lint {
+        abortOnError false
     }
 
 }
@@ -38,5 +37,5 @@ dependencies {
     implementation "androidx.exifinterface:exifinterface:${androidx_exifinterface_version}"
     implementation "androidx.transition:transition:${androidx_transition_version}"
     // OkHttp3 versions above 3.12.x don't support pre-Lollipop Android versions (API 21)
-    implementation "com.squareup.okhttp3:okhttp:3.12.13"
+    implementation 'com.squareup.okhttp3:okhttp:4.12.0'
 }
