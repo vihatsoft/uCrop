@@ -1,0 +1,41 @@
+apply plugin: 'com.android.library'
+
+android {
+    namespace 'com.yalantis.ucrop'
+    compileSdk 34
+    defaultConfig {
+        minSdkVersion 29
+        targetSdkVersion 33
+
+        vectorDrawables.useSupportLibrary = true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    resourcePrefix 'ucrop_'
+
+    sourceSets.main {
+        jni.srcDirs = []
+    }
+    lint {
+        abortOnError false
+    }
+
+}
+
+dependencies {
+    implementation "androidx.appcompat:appcompat:${androidx_appcompat_version}"
+    implementation "androidx.exifinterface:exifinterface:${androidx_exifinterface_version}"
+    implementation "androidx.transition:transition:${androidx_transition_version}"
+    // OkHttp3 versions above 3.12.x don't support pre-Lollipop Android versions (API 21)
+    implementation 'com.squareup.okhttp3:okhttp:4.12.0'
+}
