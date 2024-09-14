@@ -314,6 +314,10 @@ public class UCrop {
 
         public static final String EXTRA_UCROP_ROOT_VIEW_BACKGROUND_COLOR = EXTRA_PREFIX + ".UcropRootViewBackgroundColor";
 
+        public static final String EXTRA_BRIGHTNESS = EXTRA_PREFIX + ".Brightness";
+        public static final String EXTRA_CONTRAST = EXTRA_PREFIX + ".Contrast";
+        public static final String EXTRA_SATURATION = EXTRA_PREFIX + ".Saturation";
+        public static final String EXTRA_SHARPNESS = EXTRA_PREFIX + ".Sharpness";
 
         private final Bundle mOptionBundle;
 
@@ -578,6 +582,33 @@ public class UCrop {
             mOptionBundle.putInt(EXTRA_MAX_SIZE_Y, height);
         }
 
+        /**
+         * @param enabled - set to true to let user change brightness (enabled by default)
+         */
+        public void setBrightnessEnabled(boolean enabled) {
+            mOptionBundle.putBoolean(EXTRA_BRIGHTNESS, enabled);
+        }
+
+        /**
+         * @param enabled - set to true to let user change contrast (enabled by default)
+         */
+        public void setContrastEnabled(boolean enabled) {
+            mOptionBundle.putBoolean(EXTRA_CONTRAST, enabled);
+        }
+
+        /**
+         * @param enabled - set to true to let user change saturation (enabled by default)
+         */
+        public void setSaturationEnabled(boolean enabled) {
+            mOptionBundle.putBoolean(EXTRA_SATURATION, enabled);
+        }
+
+        /**
+         * @param enabled - set to true to let user change sharpness (enabled by default)
+         */
+        public void setSharpnessEnabled(boolean enabled) {
+            mOptionBundle.putBoolean(EXTRA_SHARPNESS, enabled);
+        }
     }
 
 }

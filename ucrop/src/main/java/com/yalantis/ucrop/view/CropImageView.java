@@ -9,6 +9,10 @@ import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.util.AttributeSet;
 
+import androidx.annotation.IntRange;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import com.yalantis.ucrop.R;
 import com.yalantis.ucrop.callback.BitmapCropCallback;
 import com.yalantis.ucrop.callback.CropBoundsChangeListener;
@@ -20,10 +24,6 @@ import com.yalantis.ucrop.util.RectUtils;
 
 import java.lang.ref.WeakReference;
 import java.util.Arrays;
-
-import androidx.annotation.IntRange;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 /**
  * Created by Oleksii Shliama (https://github.com/shliama).
@@ -82,9 +82,11 @@ public class CropImageView extends TransformImageView {
         final CropParameters cropParameters = new CropParameters(
                 mMaxResultImageSizeX, mMaxResultImageSizeY,
                 compressFormat, compressQuality,
-                getImageInputPath(), getImageOutputPath(), getExifInfo());
+                getImageInputPath(), getImageOutputPath(), getExifInfo(),
+                getCurrentBrightness(), getCurrentContrast(), getCurrentSaturation(),
+                getCurrentSharpness());
 
-        new BitmapCropTask(getViewBitmap(), imageState, cropParameters, cropCallback)
+        new BitmapCropTask(getContext(), getViewBitmap(), imageState, cropParameters, cropCallback)
                 .executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
     }
 
@@ -399,6 +401,10 @@ public class CropImageView extends TransformImageView {
         if (mTransformImageListener != null) {
             mTransformImageListener.onScale(getCurrentScale());
             mTransformImageListener.onRotate(getCurrentAngle());
+            mTransformImageListener.onBrightness(getCurrentBrightness());
+            mTransformImageListener.onContrast(getCurrentContrast());
+            mTransformImageListener.onSaturation(getCurrentSaturation());
+            mTransformImageListener.onSharpness(getCurrentSharpness());
         }
     }
 
