@@ -1,5 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'org.jetbrains.kotlin.android'
+apply from: '../mavenpush.gradle'
+
 
 android {
     namespace 'com.yalantis.ucrop'
@@ -7,10 +9,10 @@ android {
     defaultConfig {
         minSdkVersion 29
         targetSdkVersion 33
-
+        versionCode 27
+        versionName "2.2.9-native"
         vectorDrawables.useSupportLibrary = true
     }
-
     buildTypes {
         release {
             minifyEnabled false
@@ -24,9 +26,6 @@ android {
 
     resourcePrefix 'ucrop_'
 
-    sourceSets.main {
-        jni.srcDirs = []
-    }
     lint {
         abortOnError false
     }

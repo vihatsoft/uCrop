@@ -25,17 +25,8 @@ tasks.register('androidJavadocs', Javadoc) {
     source = android.sourceSets.main.java.sourceFiles
 }
 
-tasks.register('androidJavadocsJar', Jar) {
-    classifier = 'javadoc'
-    //basename = artifact_id
-    from androidJavadocs.destinationDir
-}
 
-tasks.register('androidSourcesJar', Jar) {
-    classifier = 'sources'
-    //basename = artifact_id
-    from android.sourceSets.main.java.sourceFiles
-}
+
 
 publishing {
     repositories {
@@ -51,8 +42,6 @@ publishing {
         maven(MavenPublication) {
             afterEvaluate { project ->
                 from components.release
-                artifact androidSourcesJar
-                artifact androidJavadocsJar
                 version = project.version
             }
 
