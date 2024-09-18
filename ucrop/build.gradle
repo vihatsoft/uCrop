@@ -7,7 +7,7 @@ android {
     namespace 'com.yalantis.ucrop'
     compileSdk 34
     defaultConfig {
-        minSdkVersion 29
+        minSdkVersion 21
         targetSdkVersion 33
         versionCode 27
         versionName "2.2.9-native"
